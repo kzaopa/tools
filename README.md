@@ -8,5 +8,4 @@
 来自某学长的指点，phpcms文件上传结合sql注入返回shell地址(代码写得乱，主要是一些异常判断)。
 
 **url_keyword_for_baidu.py**  data:20170517   
-百度关键字搜索结果抓取(url)，使用：脚本名 关键字 采集页数(默认线程70)   
-python url_keyword_for_baidu.py site:edu.cn 17
+百度关键字搜索结果抓取(url)，使用：脚本名 关键字 采集页数(默认线程70)。 python url_keyword_for_baidu.py site:edu.cn 17
