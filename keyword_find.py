@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 #coding:utf-8
-#Date:20170510
 #Author:1975
 
 import Queue
