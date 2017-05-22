@@ -11,32 +11,36 @@ from time import ctime
 #from bs4 import BeautifulSoup
 
 lock = threading.Lock()
-keyword = 'login.swf'   #判断关键字
+keyword = 'OPAC v'   #判断关键字
 
 def http_request():
+
+    print '***' +str(threading.active_count())+ '***--enumerate'
     while True:
-        try:
-            host = queue.get(timeout=0.1)
-        except:
+        host = queue.get()
+        if host == 'quit':
             break
+
+        host = host + '/opac/search.php'
+
         try:
             request = urllib2.Request(host)
-            respone = urllib2.urlopen(request, timeout=7)
+            respone = urllib2.urlopen(request, timeout=5)
             data = respone.read()
         except:
             data = ""
         
         if not len(data) > 0:
-            break
+            continue
         if keyword in data:
             lock.acquire()
-            #print '[*] time:', ctime()
-            print '[*]:find vulnerable host', host
+            #print '[*]:find vulnerable host', host
             with open('vul_hosts.txt', 'a') as outFile:
                 outFile.write(host+'\n')
             lock.release()
         else:
             print host
+
 
 if __name__ == '__main__':
     print '[*] start time:', ctime()
@@ -49,11 +53,14 @@ if __name__ == '__main__':
     for h in open(sys.argv[1], 'r').readlines():
         h = h.strip()
         queue.put(h)
-
+    
     for i in range(m):
         t = threading.Thread(target=http_request)
         threads.append(t)
         t.start()
+
+    for b in threads:
+        queue.put('quit')
 
     for t in threads:
         t.join()
