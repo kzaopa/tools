@@ -14,8 +14,6 @@ lock = threading.Lock()
 keyword = 'OPAC v'   #判断关键字
 
 def http_request():
-
-    print '***' +str(threading.active_count())+ '***--enumerate'
     while True:
         host = queue.get()
         if host == 'quit':

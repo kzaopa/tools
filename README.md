@@ -12,3 +12,6 @@
 
 **keyword_find.py** data:20170518   
 简易的批量python脚本，发起http请求通过查找返回的内容中是否存在关键字来判断，使用：脚本名 url文件名 线程数(默认100)； python keyword_find.py url.txt 1000
+
+**generate_four_or_six_digits.py**  data:20170606   
+生成4位或6位纯数字，usage：test.py 4  or test.py 6(源码中需改动)
