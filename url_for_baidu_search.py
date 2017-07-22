@@ -59,7 +59,11 @@ def http_req():
 
 if __name__ == '__main__':
     print 'start time:', ctime()
-    keys = sys.argv[1]
+    try:
+        keys = sys.argv[1]
+    except:
+        print 'usage: test.py keywords (options:page, default page=10)'
+        sys.exit(0)
     try:
         page = int(sys.argv[2])
     except:

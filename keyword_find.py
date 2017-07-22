@@ -45,10 +45,15 @@ if __name__ == '__main__':
     queue = Queue.Queue()
     threads = []
     try:
+        f = sys.argv[1]
+    except:
+        print 'usage: keyword_find.py hostfile (optinos: m, default m=100)'
+        sys.exit(0)
+    try:
         m = int(sys.argv[2])
     except:
         m = 100
-    for h in open(sys.argv[1], 'r').readlines():
+    for h in open(f, 'r').readlines():
         h = h.strip()
         queue.put(h)
     
