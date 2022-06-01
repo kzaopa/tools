@@ -50,7 +50,7 @@ msg_logo() {
 # install Docker
 
 getDocker() {
-  curl -s https://ghproxy.com/https://gist.githubusercontent.com/Ran-Xing/b7eef746736e51d6f7c6fd24dd942b5d/raw/5150fb33712d643d14d67773235118570f136a22/docker_init.sh | bash
+  curl -s https://raw.githubusercontent.com/kzaopa/tools/master/awvs/docker_init.sh | bash
 }
 
 clean() {
@@ -66,7 +66,7 @@ clean() {
 check() {
   msg_info "Starting cracking"
   echo -ne "${OVER}  "
-  docker exec -it awvs /bin/bash -c "curl -sLkm 10 https://pan.fahai.org/d/Awvs/awvs_listen.zip -o /awvs/awvs_listen.zip >/dev/null 2>&1 || (echo -e '[\033[1;31mx\033[0m] Download Activation Package Failed!' && exit)" && msg_info "Download Activation Package Success!"
+  docker exec -it awvs /bin/bash -c "curl -sLkm 10 https://raw.githubusercontent.com/kzaopa/tools/master/awvs/awvs_listen.zip -o /awvs/awvs_listen.zip >/dev/null 2>&1 || (echo -e '[\033[1;31mx\033[0m] Download Activation Package Failed!' && exit)" && msg_info "Download Activation Package Success!"
   echo -ne "${OVER}  "
   docker exec -it awvs /bin/bash -c "unzip -o /awvs/awvs_listen.zip -d /home/acunetix/.acunetix/data/license/ >/dev/null 2>&1 || (echo -e '[\033[1;31mx\033[0m] Decompression Of Activation Package Failed! ' && exit)" && msg_info "Decompression Of Activation Package Success!"
   echo -ne "${OVER}  "
