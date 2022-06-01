@@ -36,7 +36,7 @@ DockerInstall(){
 
 DockerComposeInstall(){
     echo " Downloading docker-compose..."
-    sudo curl -sLm 10 "https://ghproxy.com/https://github.com/docker/compose/releases/download/${Tag}/docker-compose-${OS}-${Arch}" -o /usr/local/bin/docker-compose
+    sudo curl -sLm 10 "https://github.com/docker/compose/releases/download/${Tag}/docker-compose-${OS}-${Arch}" -o /usr/local/bin/docker-compose
     sudo chmod +x /usr/local/bin/docker-compose
 }
 
